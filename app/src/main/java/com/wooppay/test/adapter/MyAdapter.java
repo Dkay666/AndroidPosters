@@ -46,21 +46,19 @@ public class MyAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View someView, ViewGroup arg2) {
-        //Получение объекта inflater из контекста
+
         LayoutInflater inflater = LayoutInflater.from(context);
-        //Если someView (View из ListView) вдруг оказался равен
-        //null тогда мы загружаем его с помошью inflater
+
         if (someView == null) {
             someView = inflater.inflate(R.layout.list, arg2, false);
         }
-        //Обявляем наши текствьюшки и связываем их с разметкой
+
         TextView header = (TextView) someView.findViewById(R.id.item_headerText);
         TextView subHeader = (TextView) someView.findViewById(R.id.item_subHeaderText);
 
-        //Устанавливаем в каждую текствьюшку соответствующий текст
-        // сначала заголовок
+
         header.setText(data.get(i).getName());
-        // потом подзаголовок
+
         subHeader.setText(data.get(i).getDescription());
         return someView;
     }

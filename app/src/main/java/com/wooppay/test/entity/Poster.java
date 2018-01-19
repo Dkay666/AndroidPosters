@@ -5,28 +5,19 @@ package com.wooppay.test.entity;
  */
 
 public class Poster {
-    /**
-     * Заголовок
-     */
+
     String name;
 
-    /**
-     * Подзаголовок
-     */
+
     String description;
 
-    /**
-     * Конструктор создает новый элемент в соответствии с передаваемыми
-     * параметрами:
-     * @param h - заголовок элемента
-     * @param s - подзаголовок
-     */
+    public Poster(){}
+
   public Poster(String name, String description){
         this.name = name;
         this.description = description;
     }
 
-    //Всякие гетеры и сеттеры
     public String getName() {
         return name;
     }
