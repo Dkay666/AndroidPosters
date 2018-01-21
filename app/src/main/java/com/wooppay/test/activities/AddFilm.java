@@ -5,9 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
 import com.wooppay.test.R;
-import com.wooppay.test.entity.Poster;
+
 
 public class AddFilm extends AppCompatActivity {
 

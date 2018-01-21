@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 /**
- * Created by EasyWay on 18.01.2018.
+ * @author Artyom Revinov
  */
 
 public enum ArrayStorage {
