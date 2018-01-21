@@ -22,30 +22,29 @@ public class MainActivity extends Activity {
 
 
     ListView lv;
-    ArrayStorage storage = new ArrayStorage();
 
+    Poster poster = new Poster();
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        storage.create(new Poster("Заголовок1", "Подзаголовок1"));
-        storage.create(new Poster("Заголовок2", "Подзаголовок2"));
-        storage.create(new Poster("Заголовок3", "Подзаголовок3"));
-        storage.create(new Poster("Заголовок4", "Подзаголовок4"));
-        storage.create(new Poster("Заголовок5", "Подзаголовок5"));
+        ArrayStorage.INSTANCE.create(0, new Poster("Заголовок 1", "Подзаголовок1"));
+        ArrayStorage.INSTANCE.posterList.add(1,new Poster("Заголовок2", "Подзаголовок2"));
+        ArrayStorage.INSTANCE.posterList.add(2,new Poster("Заголовок3", "Подзаголовок3"));
+        ArrayStorage.INSTANCE.posterList.add(3,new Poster("Заголовок4", "Подзаголовок4"));
+        ArrayStorage.INSTANCE.posterList.add(4,new Poster("Заголовок5", "Подзаголовок5"));
+
+        Log.d("artyom",String.valueOf(ArrayStorage.INSTANCE.posterList.size()));
 
 
         lv = (ListView) this.findViewById(R.id.listView1);
-        lv.setAdapter(new MyAdapter(this, storage.posterList));
+        lv.setAdapter(new MyAdapter(this, ArrayStorage.INSTANCE.posterList));
 
         String filmName = getIntent().getStringExtra("filmName");
         String description = getIntent().getStringExtra("filmDescription");
 
-        if (filmName != null){
-            storage.create(new Poster(filmName, description));
-        }
 
         lv.setOnItemClickListener(
                 new AdapterView.OnItemClickListener(){

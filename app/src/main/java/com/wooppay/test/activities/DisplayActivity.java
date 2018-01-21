@@ -13,7 +13,7 @@ import com.wooppay.test.storage.ArrayStorage;
 
 public class DisplayActivity extends AppCompatActivity {
 
-    ArrayStorage storage = new ArrayStorage();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +31,13 @@ public class DisplayActivity extends AppCompatActivity {
 
         Log.d("artyom", String.valueOf(itemId));
 
-        storage.read(itemId);
 
-        Poster filmName = storage.read(itemId);
-        name.setText(filmName.getName());
 
-//           name.setText(String.valueOf(storage.read(itemId)));
-//        description.setText(item.getDescription());
+        Poster poster = ArrayStorage.INSTANCE.posterList.get(itemId);
+        name.setText(poster.getName());
+        description.setText(poster.getDescription());
+
+
 
     }
     public void delete(){
